@@ -69,11 +69,8 @@ const SearchScreen = () => {
         contentContainerStyle={{
           paddingBottom: hp(70),
         }}>
-
-        <NewsSection newsProps={result} label= "Search Result"/>
-
-
-        </ScrollView>
+        <NewsSection newsProps={result} label="Search Result" />
+      </ScrollView>
     </View>
   );
 };

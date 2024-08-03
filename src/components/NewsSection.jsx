@@ -113,7 +113,7 @@ const NewsSection = ({newsProps}) => {
               style={{fontSize: hp(1.7), fontFamily: 'Roboto-Bold'}}>
               {item?.title?.length > 60
                 ? item.title.slice(0, 58) + '...'
-                : item.title.split('-')[0] || 'N/A'}
+                : item?.title}
             </Text>
             {/* Date */}
             <Text className="text-xs text-gray-500 dark:text-neutral-300">

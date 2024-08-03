@@ -44,6 +44,20 @@ const AppNavigation = () => {
               />
             );
           },
+
+          tabBarActiveTintColor: 'blue',
+          tabBarInactiveTintColor: 'gray',
+          tabBarLabelStyle: {
+            fontSize: 12,
+            fontFamily: 'Roboto-Bold',
+            // paddingBottom: 10,
+          },
+          tabBarStyle: {
+            backgroundColor: colorScheme == 'dark' ? 'black' : 'white',
+            // borderTopWidth: 0,
+            // padding: 10,
+            // height: 60,
+          },
         })}>
         <Tab.Screen name="Home" component={HomeScreen} />
         <Tab.Screen name="Discover" component={DiscoverScreen} />

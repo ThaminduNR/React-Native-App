@@ -49,7 +49,7 @@ const DiscoverScreen = () => {
   }, [activeCategory]);
 
   return (
-    <SafeAreaView className="pt-8 flex-1 bg-white dark:bg-nat">
+    <SafeAreaView className="pt-8 flex-1 bg-white dark:bg-neutral-900">
       <StatusBar barStyle={colorScheme === 'dark' ? 'light' : 'dark'} />
       <View>
         {/* header */}
@@ -102,7 +102,6 @@ const DiscoverScreen = () => {
           </View>
 
           {isDiscoverNewsLoading ? (
-
             <Loading />
           ) : (
             <ScrollView

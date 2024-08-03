@@ -118,7 +118,7 @@ const SavedScreen = () => {
               style={{fontSize: hp(1.7), fontFamily: 'Roboto-Bold'}}>
               {item?.title?.length > 60
                 ? item.title.slice(0, 58) + '...'
-                : item.title.split('-')[0] || 'N/A'}
+                : item?.title}
             </Text>
             {/* Date */}
             <Text className="text-xs text-gray-500 dark:text-neutral-300">
@@ -138,6 +138,15 @@ const SavedScreen = () => {
       </TouchableOpacity>
     );
   };
+  const clearSavedArticle = async () => {
+    try {
+      await AsyncStorage.removeItem('savedArticle');
+      setSavedArticles([]);
+      setBookmarkStatus([]);
+    } catch (error) {
+      console.log('error', error);
+    }
+  };
 
   return (
     <SafeAreaView className="p-4 bg-white flex-1 dark:bg-neutral-900">
@@ -154,7 +163,9 @@ const SavedScreen = () => {
           Saved Articles
         </Text>
 
-        <TouchableOpacity className="bg-blue-600 px-4 py-2 rounded-lg">
+        <TouchableOpacity
+          className="bg-blue-600 px-4 py-2 rounded-lg"
+          onPress={clearSavedArticle}>
           <Text
             className="text-white "
             style={{

@@ -31,7 +31,7 @@ const HomeScreen = () => {
   );
 
   return (
-    <SafeAreaView>
+    <SafeAreaView className="bg-white dark:bg-neutral-900">
       <StatusBar barStyle={colorScheme === 'dark' ? 'light' : 'dark'} />
       <Header />
       {isBreakingNewsLoading ? (
