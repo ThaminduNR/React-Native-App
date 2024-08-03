@@ -97,6 +97,7 @@ const NewsSection = ({newsProps}) => {
               width: hp(9),
               height: hp(10),
             }}
+            className="rounded-lg"
           />
           {/* content */}
           <View className="w-[70%] justify-center space-y-1 pl-4">

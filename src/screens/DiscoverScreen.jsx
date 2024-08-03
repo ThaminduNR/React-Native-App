@@ -12,7 +12,7 @@ import React, {useEffect, useState} from 'react';
 import Search from 'react-native-vector-icons/FontAwesome5';
 import {useNavigation} from '@react-navigation/native';
 import CategoriesCard from '../components/CategoriesCard';
-import {caregories} from '../constants';
+import {categories} from '../constants';
 import {fetchDiscoverNews} from '../../utils/NewsApi';
 import {useQuery} from '@tanstack/react-query';
 import Loading from '../components/Loading';
@@ -68,7 +68,7 @@ const DiscoverScreen = () => {
 
         {/* search */}
 
-        <View className="mx-4 mb-8 flex-row justify-between items-center bg-neutral-100 rounded-full px-2">
+        <View className="mx-4 mb-8 flex-row  items-center bg-neutral-100 rounded-full px-2">
           <TouchableOpacity
             className="pl-2 pr-2"
             onPress={() => navigation.navigate('Search')}>
@@ -80,7 +80,7 @@ const DiscoverScreen = () => {
         {/* categories */}
         <View className="mx-4 flex-row">
           <CategoriesCard
-            categories={caregories}
+            categories={categories}
             activeCategory={activeCategory}
             handleCaregoryChange={handleCaregoryChange}
           />
@@ -102,6 +102,7 @@ const DiscoverScreen = () => {
           </View>
 
           {isDiscoverNewsLoading ? (
+
             <Loading />
           ) : (
             <ScrollView
