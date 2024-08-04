@@ -38,7 +38,7 @@ const SplashScreen = () => {
       />
       <View onLayout={onLayoutRoot}>
         <Text style={styles.mainText} className="text-white">
-          BuzzLine News
+          Buzz News
         </Text>
       </View>
     </ImageBackground>

@@ -14,7 +14,7 @@ const Header = () => {
         <Text
           className="text-xl text-blue-600 dark:text-white uppercase"
           style={{fontFamily: 'Roboto-Black'}}>
-          BuzzLine News
+          Buzz News
         </Text>
       </View>
       <View className="flex-row space-x-3 rounded-full justify-center items-center">

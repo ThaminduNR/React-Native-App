@@ -13,7 +13,9 @@ const CategoriesCard = ({categories, activeCategory, handleCaregoryChange}) => {
         contentContainerStyle={{paddingHorizontal: 16}}>
         {categories.map((category, index) => {
           let isActive = category.title === activeCategory;
-          let activeButtonClass = isActive ? 'bg-blue-500' : 'bg-gray-500';
+          let activeButtonClass = isActive
+            ? 'bg-blue-500'
+            : 'bg-gray-200 dark:bg-gray-500';
 
           let activeTextClass = isActive
             ? 'text-white'

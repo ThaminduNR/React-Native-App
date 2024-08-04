@@ -17,8 +17,7 @@ const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
 const AppNavigation = () => {
-  const {colorScheme, toggleColorScheme} = useColorScheme();
-
+  const colorScheme = useColorScheme();
   const TabNavigator = () => {
     return (
       <Tab.Navigator
@@ -27,7 +26,7 @@ const AppNavigation = () => {
           tabBarIcon: ({focused}) => {
             let iconName = '';
             if (route.name === 'Home') {
-              iconName = 'home';
+              iconName = 'home-outline';
             } else if (route.name === 'Discover') {
               iconName = 'compass-outline';
             } else if (route.name === 'Saved') {
@@ -45,18 +44,15 @@ const AppNavigation = () => {
             );
           },
 
-          tabBarActiveTintColor: 'blue',
+          tabBarActiveTintColor: colors.primary_blue,
           tabBarInactiveTintColor: 'gray',
           tabBarLabelStyle: {
             fontSize: 12,
             fontFamily: 'Roboto-Bold',
-            // paddingBottom: 10,
           },
           tabBarStyle: {
             backgroundColor: colorScheme == 'dark' ? 'black' : 'white',
-            // borderTopWidth: 0,
-            // padding: 10,
-            // height: 60,
+            padding: 2,
           },
         })}>
         <Tab.Screen name="Home" component={HomeScreen} />
@@ -70,7 +66,7 @@ const AppNavigation = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="HomeTabs"
+        initialRouteName="Splash"
         screenOptions={{
           headerShown: false,
         }}>
