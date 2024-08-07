@@ -6,7 +6,7 @@ import {
   ScrollView,
 } from 'react-native';
 import React, {useCallback, useState} from 'react';
-import {debounce} from 'lodash';
+import {debounce, set} from 'lodash';
 import {useNavigation} from '@react-navigation/native';
 import {fetchSearchNews} from '../../utils/NewsApi';
 import XmarkIcon from 'react-native-vector-icons/AntDesign';
@@ -37,12 +37,9 @@ const SearchScreen = () => {
       console.log('error', error);
     }
   };
-
   const [text, setText] = useState('');
-
-  const handleTextChange = (input) => {
-    handleTextDebounce(input);
-    setText(input);
+  const clearText = () => {
+    setText('');
   };
 
   const handleTextDebounce = useCallback(debounce(handleSearch, 400), []);
@@ -51,14 +48,13 @@ const SearchScreen = () => {
     <View className="flex-1 bg-white dark:bg-neutral-900">
       <View className="mx-4 mb-3 mt-12 flex-row p-2 justify-between items-center bg-neutral-100 rounded-lg">
         <TextInput
-          value={text}
           placeholderTextColor={'gray'}
           placeholder="Search Here"
-          onChangeText={handleTextChange}
+          onChangeText={handleTextDebounce}
           className="font-medium tracking-wider p-3 py-1 w-[90%]"
         />
 
-        <TouchableOpacity className="pr-1">
+        <TouchableOpacity className="pr-1" onPress={clearText}>
           <XmarkIcon size={23} color={'#3867d6'} name="closecircle" />
         </TouchableOpacity>
       </View>
@@ -71,8 +67,8 @@ const SearchScreen = () => {
           }}>
           {result.length} News for {searchItem}
         </Text>
+        <View className="w-[100%] mt-3 h-[2] bg-gray-200"></View>
       </View>
-
       <ScrollView
         contentContainerStyle={{
           paddingBottom: hp(70),
