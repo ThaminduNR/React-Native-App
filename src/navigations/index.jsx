@@ -2,7 +2,6 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {useColorScheme} from 'nativewind';
 import HomeScreen from '../screens/HomeScreen';
 import DiscoverScreen from '../screens/DiscoverScreen';
 import SavedScreen from '../screens/SavedScreen';
@@ -12,12 +11,28 @@ import WelcomeScreen from '../screens/WelcomeScreen';
 import NewsDetailsScreen from '../screens/NewsDetailsScreen';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {colors} from '../constants/Colors';
+import {useColorScheme} from 'nativewind';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
 const AppNavigation = () => {
   const colorScheme = useColorScheme();
+
+  const isDark = colorScheme.colorScheme === 'dark';
+
+  console.log('Color Scheme in dark---', isDark);
+  console.log('Color Scheme in Navigation', colorScheme.colorScheme);
+
+  const printDark = () => {
+    console.log('Color Scheme in Navigation', colorScheme.colorScheme);
+    return colors.bg_black;
+  };
+  const printWithoutDark = () => {
+    console.log('Color Scheme in No');
+    return colors.bg_white;
+  };
+
   const TabNavigator = () => {
     return (
       <Tab.Navigator
@@ -44,15 +59,15 @@ const AppNavigation = () => {
             );
           },
 
+          tabBarStyle: {
+            backgroundColor: isDark ? colors.bg_black : colors.bg_white,
+            padding: 3,
+          },
           tabBarActiveTintColor: colors.primary_blue,
           tabBarInactiveTintColor: 'gray',
           tabBarLabelStyle: {
             fontSize: 12,
             fontFamily: 'Roboto-Bold',
-          },
-          tabBarStyle: {
-            backgroundColor: colorScheme == 'dark' ? 'black' : 'white',
-            padding: 2,
           },
         })}>
         <Tab.Screen name="Home" component={HomeScreen} />
@@ -77,7 +92,7 @@ const AppNavigation = () => {
         <Stack.Screen
           name="NewsDetails"
           component={NewsDetailsScreen}
-          options={{animation: 'slide_from_bottom'}}
+          options={{animation: 'slide_from_left'}}
         />
       </Stack.Navigator>
     </NavigationContainer>

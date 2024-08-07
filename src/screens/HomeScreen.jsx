@@ -30,6 +30,8 @@ const HomeScreen = () => {
     },
   );
 
+  //console.log(' Status bar color scheme', colorScheme);
+
   return (
     <SafeAreaView className="bg-white dark:bg-neutral-900">
       <StatusBar barStyle={colorScheme === 'dark' ? 'light' : 'dark'} />

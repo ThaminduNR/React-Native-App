@@ -102,7 +102,6 @@ const NewsDetailsScreen = () => {
         source={{uri: item.url}}
         onLoad={() => setVisible(true)}
         onLoadEnd={() => setVisible(false)}
-        style={{marginTop: 20}}
       />
 
       {visible && (

@@ -1,4 +1,4 @@
-import {View, Text, StyleSheet, Switch, TouchableOpacity} from 'react-native';
+import {View, Text, Switch, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {useColorScheme} from 'nativewind';
 import {useNavigation} from '@react-navigation/native';
@@ -21,6 +21,7 @@ const Header = () => {
         <Switch
           value={colorScheme === 'dark'}
           onValueChange={toggleColorScheme}
+         
         />
         <TouchableOpacity className="bg-gray-200 dark:text-white rounded-full p-2 ">
           <Search size={20} color={'blue'} name="search" />
