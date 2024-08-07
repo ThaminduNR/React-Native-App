@@ -28,6 +28,7 @@ const AppNavigation = () => {
     return (
       <Tab.Navigator
         screenOptions={({route}) => ({
+          tabBarHideOnKeyboard: true,
           headerShown: false,
           tabBarIcon: ({focused}) => {
             let iconName = '';
@@ -53,12 +54,14 @@ const AppNavigation = () => {
           tabBarStyle: {
             backgroundColor:
               colorScheme === 'dark' ? colors.bg_black : colors.bg_white,
-            padding: 3,
+            height: 60,
+            paddingTop: 10,
+            paddingBottom: 5,
           },
           tabBarActiveTintColor: colors.primary_blue,
           tabBarInactiveTintColor: 'gray',
           tabBarLabelStyle: {
-            fontSize: 12,
+            fontSize: 13,
             fontFamily: 'Roboto-Bold',
           },
         })}>
