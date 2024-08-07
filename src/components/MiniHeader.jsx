@@ -5,7 +5,7 @@ const MiniHeader = ({label}) => {
   return (
     <View className="px-4 my-5 justify-between flex-row items-center">
       <Text
-        className="text-blue-600 text-lg dark:text-white"
+        className="text-[#3867d6] text-lg dark:text-white"
         style={{
           fontFamily: 'Roboto-Bold',
         }}>

@@ -12,7 +12,7 @@ const Header = () => {
     <View className="flex-row justify-between items-center mx-4 mt-4">
       <View>
         <Text
-          className="text-xl text-blue-600 dark:text-white uppercase"
+          className="text-xl text-[#3867d6] dark:text-white uppercase"
           style={{fontFamily: 'Roboto-Black'}}>
           Buzz News
         </Text>
@@ -21,10 +21,11 @@ const Header = () => {
         <Switch
           value={colorScheme === 'dark'}
           onValueChange={toggleColorScheme}
-         
         />
-        <TouchableOpacity className="bg-gray-200 dark:text-white rounded-full p-2 ">
-          <Search size={20} color={'blue'} name="search" />
+        <TouchableOpacity
+          className="bg-gray-200 dark:text-white rounded-full p-2 "
+          onPress={() => navigation.navigate('Search')}>
+          <Search size={20} color={'#3867d6'} name="search" />
         </TouchableOpacity>
       </View>
     </View>

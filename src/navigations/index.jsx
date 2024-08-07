@@ -17,21 +17,12 @@ const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
 const AppNavigation = () => {
-  const colorScheme = useColorScheme();
+  const {colorScheme} = useColorScheme();
 
-  const isDark = colorScheme.colorScheme === 'dark';
+  // const isDark = colorScheme.colorScheme === 'dark';
 
-  console.log('Color Scheme in dark---', isDark);
-  console.log('Color Scheme in Navigation', colorScheme.colorScheme);
-
-  const printDark = () => {
-    console.log('Color Scheme in Navigation', colorScheme.colorScheme);
-    return colors.bg_black;
-  };
-  const printWithoutDark = () => {
-    console.log('Color Scheme in No');
-    return colors.bg_white;
-  };
+  // console.log('Color Scheme in dark---', isDark);
+  console.log('Color Scheme in Navigation', colorScheme);
 
   const TabNavigator = () => {
     return (
@@ -60,7 +51,8 @@ const AppNavigation = () => {
           },
 
           tabBarStyle: {
-            backgroundColor: isDark ? colors.bg_black : colors.bg_white,
+            backgroundColor:
+              colorScheme === 'dark' ? colors.bg_black : colors.bg_white,
             padding: 3,
           },
           tabBarActiveTintColor: colors.primary_blue,

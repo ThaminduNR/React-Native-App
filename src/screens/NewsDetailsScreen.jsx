@@ -12,6 +12,7 @@ import BackIcon from 'react-native-vector-icons/Ionicons';
 import ShareIcon from 'react-native-vector-icons/Ionicons';
 import WebView from 'react-native-webview';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {colors} from '../constants/Colors';
 
 const {height, width} = Dimensions.get('window');
 
@@ -91,7 +92,7 @@ const NewsDetailsScreen = () => {
             <ShareIcon
               name="bookmark"
               size={24}
-              color={isBookmarked ? 'blue' : 'gray'}
+              color={isBookmarked ? colors.primary_blue : 'gray'}
             />
           </TouchableOpacity>
         </View>

@@ -38,20 +38,28 @@ const SearchScreen = () => {
     }
   };
 
+  const [text, setText] = useState('');
+
+  const handleTextChange = (input) => {
+    handleTextDebounce(input);
+    setText(input);
+  };
+
   const handleTextDebounce = useCallback(debounce(handleSearch, 400), []);
 
   return (
     <View className="flex-1 bg-white dark:bg-neutral-900">
       <View className="mx-4 mb-3 mt-12 flex-row p-2 justify-between items-center bg-neutral-100 rounded-lg">
         <TextInput
+          value={text}
           placeholderTextColor={'gray'}
           placeholder="Search Here"
-          onChangeText={handleTextDebounce}
+          onChangeText={handleTextChange}
           className="font-medium tracking-wider p-3 py-1 w-[90%]"
         />
 
         <TouchableOpacity className="pr-1">
-          <XmarkIcon size={23} color={'blue'} name="closecircle" />
+          <XmarkIcon size={23} color={'#3867d6'} name="closecircle" />
         </TouchableOpacity>
       </View>
 

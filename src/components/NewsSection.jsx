@@ -4,6 +4,7 @@ import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import Bookmark from 'react-native-vector-icons/FontAwesome';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { colors } from '../constants/Colors';
 
 const NewsSection = ({newsProps}) => {
   const navigation = useNavigation();
@@ -124,7 +125,7 @@ const NewsSection = ({newsProps}) => {
             <TouchableOpacity onPress={() => toggleBookmarkSave(item, index)}>
               <Bookmark
                 name="bookmark"
-                color={bookmarkStatus[index] ? 'blue' : 'gray'}
+                color={bookmarkStatus[index] ? colors.primary_blue : 'gray'}
                 size={24}
               />
             </TouchableOpacity>
